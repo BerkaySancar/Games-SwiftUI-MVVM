@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  GamesSwiftUI
+
+  Created by Berkay Sancar on 3.04.2023.
+  
+*/
+
+"invalid-url" = "Something went wrong.";
+"invalid-response" = "Invalid response.";
+"request-failed" = "Request failed.";
+"invalid-data" = "No data.";

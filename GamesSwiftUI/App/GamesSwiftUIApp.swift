@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct GamesSwiftUIApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .preferredColorScheme(.dark)
         }
     }
 }
