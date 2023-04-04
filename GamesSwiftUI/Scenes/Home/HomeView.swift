@@ -38,7 +38,7 @@ struct HomeView: View {
                     
                     ForEach(viewModel.games, id: \.id) { game in
                         NavigationLink {
-                            Text(game.name)
+                            DetailView(id: game.id)
                         } label: {
                             GameCellView(game: game)
                         }
@@ -46,7 +46,11 @@ struct HomeView: View {
                 }
                 .searchable(text: $searchText) {
                     ForEach(viewModel.searchedGames(text: self.searchText), id: \.id) { game in
-                        GameCellView(game: game).searchCompletion(game)
+                        NavigationLink {
+                            DetailView(id: game.id)
+                        } label: {
+                            GameCellView(game: game)
+                        }
                     }
                 }
                 .navigationTitle("Games")

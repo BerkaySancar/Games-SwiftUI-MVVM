@@ -10,9 +10,9 @@ import Foundation
 @MainActor
 final class HomeViewModel: ObservableObject {
     
-    @Published internal var games: [Game] = []
-    @Published internal var viewState: ViewState = .loading
-    @Published internal var errorMessage: String?
+    @Published private(set) internal var games: [Game] = []
+    @Published private(set) internal var viewState: ViewState = .loading
+    @Published private(set) internal var errorMessage: String?
     @Published internal var showAlert = false
     
     init() {

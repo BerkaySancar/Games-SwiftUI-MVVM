@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameListResponse: Codable {
+struct GameList: Codable {
     let results: [Game]
 }
 
