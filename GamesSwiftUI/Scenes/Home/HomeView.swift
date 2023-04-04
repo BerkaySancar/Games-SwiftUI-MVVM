@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
     
+    @State private var searchText = ""
+    
     var body: some View {
         NavigationView {
             if viewModel.viewState == .loading {
@@ -40,6 +42,11 @@ struct HomeView: View {
                         } label: {
                             GameCellView(game: game)
                         }
+                    }
+                }
+                .searchable(text: $searchText) {
+                    ForEach(viewModel.searchedGames(text: self.searchText), id: \.id) { game in
+                        GameCellView(game: game).searchCompletion(game)
                     }
                 }
                 .navigationTitle("Games")

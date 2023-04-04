@@ -41,4 +41,12 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
+    
+    func searchedGames(text: String) -> [Game] {
+        if text.isEmpty {
+            return self.games
+        } else {
+            return self.games.filter { $0.name.contains(text) }
+        }
+    }
 }
