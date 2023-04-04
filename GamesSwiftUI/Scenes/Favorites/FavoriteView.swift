@@ -17,7 +17,7 @@ struct FavoriteView: View {
                 Text("List is empty")
             } else {
                 List {
-                    ForEach(viewModel.favGames, id: \.name) { game in
+                    ForEach(viewModel.favGames, id: \.self) { game in
                         FavCellView(game: game)
                     }
                     .onDelete { indexSet in
