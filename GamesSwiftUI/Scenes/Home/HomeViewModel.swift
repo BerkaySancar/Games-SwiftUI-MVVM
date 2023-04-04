@@ -46,7 +46,7 @@ final class HomeViewModel: ObservableObject {
         if text.isEmpty {
             return self.games
         } else {
-            return self.games.filter { $0.name.contains(text) }
+            return self.games.filter { $0.name.lowercased().contains(text.lowercased()) }
         }
     }
 }

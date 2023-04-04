@@ -10,8 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     @StateObject private var viewModel = HomeViewModel()
-    
     @State private var searchText = ""
+    
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .systemBlue
+    }
     
     var body: some View {
         NavigationView {

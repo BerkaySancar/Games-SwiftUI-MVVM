@@ -9,12 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @StateObject private var viewModel = DetailViewModel()
-    @State private var starTapped = false
+    @ObservedObject private var viewModel = DetailViewModel()
+ 
     private var id: Int
     
     init(id: Int) {
         self.id = id
+        viewModel.getGameDetail(id: id)
     }
     
     var body: some View {
@@ -40,17 +41,18 @@ struct DetailView: View {
                 }
                 .navigationTitle("Detail")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    Button {
-                        self.starTapped.toggle()
-                    } label: {
-                        Image(systemName: self.starTapped ? "star.fill" : "star")
-                    }
-                }
             }
         }
-        .onAppear {
-            viewModel.getGameDetail(id: self.id)
+        .onAppear{
+            viewModel.setFavButtonImage()
+        }
+        .toolbar {
+            Button {
+                viewModel.toggleFavButton()
+                viewModel.addFavorite()
+            } label: {
+                Image(systemName: viewModel.favButtonImageName)
+            }
         }
         .alert(isPresented: $viewModel.showAlert) {
             Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("Try Again")) {

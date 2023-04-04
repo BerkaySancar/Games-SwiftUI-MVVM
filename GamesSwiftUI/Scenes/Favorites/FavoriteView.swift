@@ -12,7 +12,33 @@ struct FavoriteView: View {
     @StateObject private var viewModel = FavoriteViewModel()
     
     var body: some View {
-        Text("Favorites")
+        NavigationView {
+            if viewModel.favGames.isEmpty {
+                Text("List is empty")
+            } else {
+                List {
+                    ForEach(viewModel.favGames, id: \.name) { game in
+                        HStack {
+                            AsyncImage(url: URL(string: game.imageURL ?? "")) { image in
+                                image.image?.resizable()
+                            }
+                            .frame(width: 72, height: 72)
+                            .cornerRadius(8)
+                            
+                            Text(game.name ?? "")
+                        }
+                    }
+                    .onDelete { indexSet in
+                        viewModel.deleteGame(indexSet: indexSet)
+                    }
+                }
+                .navigationTitle("Favorites")
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+        .onAppear {
+            viewModel.getFavGames()
+        }
     }
 }
 

@@ -27,6 +27,8 @@
 		B1D6544629DC325000157231 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6544529DC325000157231 /* FavoriteView.swift */; };
 		B1D6544829DC325B00157231 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6544729DC325B00157231 /* FavoriteViewModel.swift */; };
 		B1D6544B29DC32E500157231 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6544A29DC32E500157231 /* TabBarView.swift */; };
+		B1D6544D29DC4CC000157231 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6544C29DC4CC000157231 /* CoreDataManager.swift */; };
+		B1D6545129DC4CFA00157231 /* Favorite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1D6544F29DC4CFA00157231 /* Favorite.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		B1D6544529DC325000157231 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		B1D6544729DC325B00157231 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B1D6544A29DC32E500157231 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		B1D6544C29DC4CC000157231 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B1D6545029DC4CFA00157231 /* Favorite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorite.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				B11313C829DAE7A900584FD0 /* App */,
 				B11313CA29DAE7B600584FD0 /* Resources */,
 				B11313D729DAE8CF00584FD0 /* Utilities */,
+				B1D6544E29DC4CE300157231 /* Models */,
 				B11313E329DAF10C00584FD0 /* Managers */,
 				B11313D229DAE81F00584FD0 /* Network */,
 				B11313E629DB025F00584FD0 /* CustomViews */,
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				B11313E429DAF11F00584FD0 /* NetworkManager.swift */,
+				B1D6544C29DC4CC000157231 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -249,6 +255,14 @@
 				B1D6544A29DC32E500157231 /* TabBarView.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		B1D6544E29DC4CE300157231 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1D6544F29DC4CFA00157231 /* Favorite.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,8 +342,10 @@
 				B11502B929DB2106001A01A3 /* ViewState.swift in Sources */,
 				B11313DA29DAE8E500584FD0 /* EndpointsProtocol.swift in Sources */,
 				B11313E229DAF07D00584FD0 /* NetworkError.swift in Sources */,
+				B1D6544D29DC4CC000157231 /* CoreDataManager.swift in Sources */,
 				B1D6544429DC27C500157231 /* GameDetailResponse.swift in Sources */,
 				B11313D429DAE84000584FD0 /* GamesAPI.swift in Sources */,
+				B1D6545129DC4CFA00157231 /* Favorite.xcdatamodeld in Sources */,
 				B11313E829DB02C300584FD0 /* GameCellView.swift in Sources */,
 				B11313BB29DAE79E00584FD0 /* GamesSwiftUIApp.swift in Sources */,
 				B11313D629DAE8B600584FD0 /* GameEndpoints.swift in Sources */,
@@ -552,6 +568,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B1D6544F29DC4CFA00157231 /* Favorite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B1D6545029DC4CFA00157231 /* Favorite.xcdatamodel */,
+			);
+			currentVersion = B1D6545029DC4CFA00157231 /* Favorite.xcdatamodel */;
+			path = Favorite.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B11313AF29DAE79E00584FD0 /* Project object */;
 }

@@ -9,4 +9,13 @@ import Foundation
 
 final class FavoriteViewModel: ObservableObject {
     
+    @Published internal var favGames: [Favorite] = []
+    
+    func getFavGames() {
+        self.favGames = CoreDataManager.shared.fetchFavorites() ?? []
+    }
+    
+    func deleteGame(indexSet: IndexSet) {
+        CoreDataManager.shared.deleteFavorite(indexSet: indexSet)
+    }
 }
