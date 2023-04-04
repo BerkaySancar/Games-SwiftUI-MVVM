@@ -18,15 +18,7 @@ struct FavoriteView: View {
             } else {
                 List {
                     ForEach(viewModel.favGames, id: \.name) { game in
-                        HStack {
-                            AsyncImage(url: URL(string: game.imageURL ?? "")) { image in
-                                image.image?.resizable()
-                            }
-                            .frame(width: 72, height: 72)
-                            .cornerRadius(8)
-                            
-                            Text(game.name ?? "")
-                        }
+                        FavCellView(game: game)
                     }
                     .onDelete { indexSet in
                         viewModel.deleteGame(indexSet: indexSet)
