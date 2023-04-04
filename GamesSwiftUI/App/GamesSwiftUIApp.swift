@@ -12,7 +12,7 @@ struct GamesSwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            TabBarView()
                 .preferredColorScheme(.dark)
         }
     }
