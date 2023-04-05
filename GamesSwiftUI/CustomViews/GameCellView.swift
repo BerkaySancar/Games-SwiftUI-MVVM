@@ -17,7 +17,10 @@ struct GameCellView: View {
             
             HStack {
                 AsyncImage(url: URL(string: game.backgroundImage ?? "")) { image in
-                    image.image?.resizable()
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                        .tint(.blue)
                 }
                 .frame(width: 116, height: 116)
                 .cornerRadius(8)

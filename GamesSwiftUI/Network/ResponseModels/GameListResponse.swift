@@ -11,7 +11,7 @@ struct GameList: Codable {
     let results: [Game]
 }
 
-struct Game: Codable, Identifiable {
+struct Game: Codable, Identifiable, Equatable {
     let id: Int
     let name: String
     let metacritic: Int?

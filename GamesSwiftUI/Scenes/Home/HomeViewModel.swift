@@ -11,9 +11,10 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     
     @Published private(set) internal var games: [Game] = []
-    @Published private(set) internal var viewState: ViewState = .loading
+    private(set) internal var viewState: ViewState = .loading
     @Published private(set) internal var errorMessage: String?
     @Published internal var showAlert = false
+    private var page: Int = 1
     
     init() {
         getGames()
@@ -23,14 +24,14 @@ final class HomeViewModel: ObservableObject {
         Task {
             self.viewState = .loading
             
-            try await GamesAPI.shared.fetchGameList(page: 1) { [weak self] results in
+            try await GamesAPI.shared.fetchGameList(page: self.page) { [weak self] results in
                 guard let self else { return }
                 switch results {
                 case .success(let games):
                     DispatchQueue.main.async {
                         self.showAlert = false
                         self.viewState = .loaded
-                        self.games = games
+                        self.games.append(contentsOf: games)
                     }
                 case .failure(let error):
                     DispatchQueue.main.async {
@@ -39,6 +40,13 @@ final class HomeViewModel: ObservableObject {
                     }
                 }
             }
+        }
+    }
+    
+    func loadMoreData(currentItem: Game) {
+        if currentItem == self.games.last {
+            self.page += 1
+            self.getGames()
         }
     }
     

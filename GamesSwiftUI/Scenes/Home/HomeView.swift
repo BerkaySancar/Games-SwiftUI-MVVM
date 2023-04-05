@@ -39,11 +39,16 @@ struct HomeView: View {
                     .padding()
                     .frame(width: UIScreen.main.bounds.width)
                     
-                    ForEach(viewModel.games, id: \.id) { game in
-                        NavigationLink {
-                            DetailView(id: game.id)
-                        } label: {
-                            GameCellView(game: game)
+                    LazyVStack {
+                        ForEach(viewModel.games, id: \.id) { game in
+                            NavigationLink {
+                                DetailView(id: game.id)
+                            } label: {
+                                GameCellView(game: game)
+                                    .onAppear {
+                                        viewModel.loadMoreData(currentItem: game)
+                                    }
+                            }
                         }
                     }
                 }
